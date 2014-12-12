@@ -22,6 +22,7 @@ namespace Bullets
 		public static Player 		player;
 		public static Enemy 		enemy;
 		private static Background 	background;
+		private static List<Projectile>		proj;
 		//Possible future implementation
 		//private static Powerup 		powerup;
 		
@@ -32,9 +33,7 @@ namespace Bullets
 			//Game Loop
 			bool quitGame = false;
 			while (!quitGame)
-			{
-				Update ();
-				
+			{				
 				Director.Instance.Update();
 				Director.Instance.Render ();
 				UISystem.Render ();
@@ -68,23 +67,14 @@ namespace Bullets
 			
 			enemy = new Enemy(gameScene);
 			
+			proj = new List<Projectile>();
+			
 			//Run the scene.
 			Director.Instance.RunWithScene(gameScene, true);
 		}
 
 		public static void Update()
 		{	
-			//Determine whether the player tapped the screen
-			var touches = Touch.GetData(0);
-			
-			//If tapped, inform the player.
-			if(touches.Count > 0)
-			{
-				float newX = (touches[0].X+0.5f)*960-5;
-				float newY = 544-(touches[0].Y+0.5f)*544-10;
-				
-				player.sprite.Position = new Vector2(newX,newY);
-			}
 			
 			//Update the player.
 			Player.Update();

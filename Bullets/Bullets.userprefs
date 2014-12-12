@@ -1,12 +1,13 @@
 ﻿<Properties>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Bullets\Enemy.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Bullets\Player.cs">
     <Files>
-      <File FileName="Bullets\AppMain.cs" Line="91" Column="4" />
-      <File FileName="Bullets\Player.cs" Line="12" Column="3" />
+      <File FileName="Bullets\AppMain.cs" Line="78" Column="4" />
+      <File FileName="Bullets\Player.cs" Line="21" Column="21" />
       <File FileName="Bullets\Obstacle.cs" Line="1" Column="1" />
       <File FileName="Bullets\Background.cs" Line="14" Column="18" />
       <File FileName="Bullets\Enemy.cs" Line="30" Column="6" />
+      <File FileName="Bullets\Projectile.cs" Line="15" Column="14" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
