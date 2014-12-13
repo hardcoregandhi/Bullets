@@ -41,10 +41,11 @@
   <ItemGroup>
     <Compile Include="AppMain.cs" />
     <Compile Include="Player.cs" />
-    <Compile Include="Obstacle.cs" />
     <Compile Include="Background.cs" />
     <Compile Include="Enemy.cs" />
     <Compile Include="Projectile.cs" />
+    <Compile Include="Blip.cs" />
+    <Compile Include="MainMenu.cs" />
   </ItemGroup>
   <ItemGroup>
     <ShaderProgram Include="shaders\Simple.fcg" />
@@ -61,5 +62,7 @@
     <Content Include="textures\player.png" />
     <Content Include="textures\background.png" />
     <Content Include="textures\enemy.png" />
+    <Content Include="textures\Projectile.png" />
+    <Content Include="textures\blip.png" />
   </ItemGroup>
 </Project>

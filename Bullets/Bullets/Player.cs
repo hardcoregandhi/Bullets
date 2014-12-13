@@ -15,6 +15,8 @@ namespace Bullets
 		public static SpriteUV		sprite;
 		private static TextureInfo	textureInfo;
 		private static bool 		alive;
+		public static Bounds2 				bounds;
+		public static Rectangle boundsRect;
 		
 		public bool Alive { get{return alive;} set{alive = value;} }
 		
@@ -22,10 +24,10 @@ namespace Bullets
 		public Player (Scene scene)
 		{
 			textureInfo = new TextureInfo("/Application/textures/player.png");
-			
-			sprite			= new SpriteUV();
 			sprite			= new SpriteUV(textureInfo);
 			sprite.Quad.S	= textureInfo.TextureSizef;
+			bounds = sprite.Quad.Bounds2();
+			boundsRect = new Rectangle(sprite.Position.X, sprite.Position.Y, textureInfo.Texture.Width, textureInfo.Texture.Height);
 			sprite.Position = new Vector2(50.0f,Director.Instance.GL.Context.GetViewport().Height*0.5f);
 //			sprite.Scale = new Vector2(Director.Instance.GL.Context.Screen.Width,
 //                                       Director.Instance.GL.Context.Screen.Height);
@@ -35,20 +37,9 @@ namespace Bullets
 			scene.AddChild(sprite);
 		}
 		
-		public static void Update()
+		public void update()
 		{
-			//Determine whether the player tapped the screen
-			var touches = Touch.GetData(0);
 			
-			//If tapped, inform the player.
-			if(touches.Count > 0)
-			{
-				float newX = (touches[0].X+0.5f)*960-5;
-				float newY = 544-(touches[0].Y+0.5f)*544-10;
-				
-				sprite.Position = new Vector2(newX,newY);
-				
-			}
 			
 		}
 	}

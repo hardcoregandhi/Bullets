@@ -11,31 +11,36 @@ namespace Bullets
 	public class Enemy
 	{
 		//Private variables
-		public SpriteUV		sprite;
-		private static TextureInfo	textureInfo;
-		private static bool 		alive;
-		public int			rotation;
+		public SpriteUV	sprite;
+		private static TextureInfo textureInfo;
+		private static bool alive;
+		public int rotation;
+		public Vector2 direction;
 		
-		public bool Alive { get{return alive;} set{alive = value;} }
+		
+		public bool Alive {get{return alive;} set{alive = value;}}
 		
 		//Public functions
-		public Enemy (Scene scene)
+		public Enemy (Vector2 pos, Vector2 rot)
 		{
-			textureInfo = new TextureInfo("/Application/textures/enemy.png");
-			
-			sprite			= new SpriteUV();
+			textureInfo = new TextureInfo("/Application/textures/enemy.png");		
 			sprite			= new SpriteUV(textureInfo);
 			sprite.Quad.S	= textureInfo.TextureSizef;
-			sprite.Position = new Vector2(900.0f,Director.Instance.GL.Context.GetViewport().Height*0.5f);
-			//sprite.Rotate = new Vector2(180.0f);
+			sprite.Position = pos;//new Vector2(900.0f,Director.Instance.GL.Context.GetViewport().Height*0.5f);
+			//sprite.Rotate(rot);//sprite.Rotate = new Vector2(180.0f);
+			
+			
 			
 			//Add to the current scene.
-			scene.AddChild(sprite);
+			AppMain.gameScene.AddChild(sprite);
 		}
-		
-		public static void Update()
+
+		public void update()
 		{
+			direction= Player.sprite.Position- sprite.Position;
+			direction.Normalize();
 			
+			sprite.Angle=FMath.Atan2(direction.X,-direction.Y) -90;
 		}
 	}
 }
